@@ -216,6 +216,7 @@ getAllMoviesReleasedAtOrBeforeYear(exampleMovies, 2000)
  *  //> "Incredibles 2"
  */
 function getBiggestBoxOfficeMovie(movies) {
+  
   let revenue = 0;
   let title = null;
   for(let movie of movies) {
