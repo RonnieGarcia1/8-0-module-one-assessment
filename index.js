@@ -157,7 +157,16 @@ findById(exampleMovies);
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let genreArr = [];
+  for(let movie of movies){
+    if (movie.genre.toLowerCase().includes(genre.toLowerCase())){
+    genreArr.push(movie)
+  }
+}
+return genreArr;
+}
+filterByGenre(exampleMovies,"Mystery");
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -181,7 +190,19 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  if(!movies){
+    return [];
+  }
+    let releasesArr = [];
+    for(let movie of movies){
+    if (movie.released.split(' ')[2] <= year){
+      releasesArr.push(movie);
+    }
+  }
+  return releasesArr;
+}
+getAllMoviesReleasedAtOrBeforeYear(exampleMovies, 2000)
 
 /**
  * getBiggestBoxOfficeMovie()
