@@ -76,6 +76,7 @@ getHighestMetascore(exampleMovies);
  function getAverageIMDBRating(movies) {
   let averageRating = 0;
    let rating = movies[0];
+
    if(!rating){
      return 0;
    }
@@ -97,8 +98,21 @@ getHighestMetascore(exampleMovies);
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
-
+function countByRating(movies) {
+  if(!movies){
+  return {};
+}
+let ratings = {}
+for(let movie of movies){
+if(!ratings[movie.rated]) {
+  ratings[movie.rated] = 1;
+} else {
+  ratings[movie.rated]++;
+}
+}
+return ratings;
+}
+countByRating(exampleMovies);
 /**
  * findById()
  * -----------------------------
@@ -113,7 +127,15 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+for(let movie of movies){
+  if (movie.imdbID === id){
+    return movie;
+  }
+}
+return null;
+}
+findById(exampleMovies);
 
 /**
  * filterByGenre()
